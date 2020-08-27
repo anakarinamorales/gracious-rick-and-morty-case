@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const List = (props) => {
-  const { children, container, data } = props;
+  const { children, container, data, className} = props;
 
   const dataList = data.map(children);
-  return React.createElement(container, {}, dataList);
+  return React.createElement(container, {className} , dataList);
 };
 
 List.propTypes = {

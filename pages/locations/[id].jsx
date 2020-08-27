@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useQuery } from '@apollo/react-hooks';
 import withApollo from '../../components/withApollo';
 import queries from '../../queries';
-import style from '../../components/styles/layout.module.css';
+import listStyle from '../../components/styles/list.module.css';
 import List from '../../components/List';
 
 function Locations(props) {
@@ -23,16 +23,16 @@ function Locations(props) {
   }
 
   return (
-    <main>
-      <h1 className={style.title}>
+    <main className={listStyle.container}>
+      <h1 className={listStyle.title}>
         Location:
         {data.location.name}
       </h1>
 
-      <List container="div" data={data.location.residents}>
+      <List container="div" data={data.location.residents} className={listStyle.grid}>
         {(childData) => (
           <Link href={`/characters/${childData.id}`}>
-            <a>{childData.name}</a>
+            <a className={listStyle.card}>{childData.name}</a>
           </Link>
         )}
       </List>

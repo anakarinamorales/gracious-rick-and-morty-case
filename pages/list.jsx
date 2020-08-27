@@ -4,7 +4,7 @@ import withApollo from '../components/withApollo';
 
 import queries from '../queries';
 import QueryList from '../components/QueryList';
-import style from '../components/styles/layout.module.css';
+import listStyle from '../components/styles/list.module.css';
 
 function ListPage() {
   const router = useRouter();
@@ -12,19 +12,49 @@ function ListPage() {
   const query = queries[`get_${type}`.toUpperCase()];
 
   return (
-    <main>
-      <h1 className={style.title}>
+    <main className={listStyle.container}>
+      <h1 className={listStyle.title}>
         {type}
         {' '}
         list
       </h1>
-      <QueryList query={query} type={type} container="div">
+      <QueryList query={query} type={type} container="div" className={listStyle.grid}>
         {(childData) => (
           <Link href={`${type}/${childData.id}`}>
-            <a>{childData.name}</a>
+            <a className={listStyle.card}>{childData.name}</a>
           </Link>
         )}
       </QueryList>
+
+      <style jsx global>{`
+        html,
+        body {
+          padding: 0;
+          margin: 0;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+            Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+          line-height: 1.6;
+          font-size: 18px;
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+
+        a {
+          color: #0070f3;
+          text-decoration: none;
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
+
+        img {
+          max-width: 100%;
+          display: block;
+        }
+      `}</style>
     </main>
   );
 }

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useQuery } from '@apollo/react-hooks';
 import withApollo from '../../components/withApollo';
 import queries from '../../queries';
-import style from '../../components/styles/layout.module.css';
+import listStyle from '../../components/styles/list.module.css';
 import List from '../../components/List';
 
 function Episodes(props) {
@@ -23,16 +23,16 @@ function Episodes(props) {
   }
 
   return (
-    <main>
-      <h1 className={style.title}>
+    <main className={listStyle.container}>
+      <h1 className={listStyle.title}>
         Episode:
         {data.episode.name}
       </h1>
 
-      <List container="div" data={data.episode.characters}>
-        {(childData) => (
+      <List container='div' data={data.episode.characters} className={listStyle.grid}>
+        {childData => (
           <Link href={`/characters/${childData.id}`}>
-            <a>{childData.name}</a>
+            <a className={listStyle.card}>{childData.name}</a>
           </Link>
         )}
       </List>
@@ -40,7 +40,7 @@ function Episodes(props) {
   );
 }
 
-Episodes.getInitialProps = async (ctx) => {
+Episodes.getInitialProps = async ctx => {
   const { query } = ctx;
   const { id } = query;
 
