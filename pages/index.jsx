@@ -4,7 +4,9 @@ import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import withApollo from '../components/withApollo';
 
-import styles from './../components/styles/layout.module.css'
+import styles from './../components/styles/layout.module.css';
+
+import ListCharactersFrom from '../components/listCharactersFrom';
 
 const GET_CHARACTERS = gql`
   query character {
@@ -38,6 +40,19 @@ const GET_LOCATIONS = gql`
   }
 `;
 
+const GET_EPISODES = gql`
+  query episodes {
+    episodes {
+      results {
+        name
+        characters {
+          name
+        }
+      }
+    }
+  }
+`;
+
 function Home() {
   const { loading: characterLoading, error: characterError, data: allCharacters } = useQuery(
     GET_CHARACTERS,
@@ -53,20 +68,15 @@ function Home() {
     },
   );
 
-  if (characterLoading || locationsLoading) {
+  const { loading: episodesLoading, error: episodesError, data: allEpisodes } = useQuery(
+    GET_EPISODES,
+    {
+      notifyOnNetworkStatusChange: true,
+    },
+  );
+
+  if (characterLoading || locationsLoading || episodesLoading) {
     return null;
-  }
-
-  const getCharactersOfDimension = (locationId, chars) => {
-    chars.forEach(char => {
-        if(char.location.id === locationId) {
-            console.log(char.name)
-        }
-    });
-  }
-
-  let getCharactersFromDimention = (characters, dimensionId) => {
-    characters.filter
   }
 
   return (
@@ -78,6 +88,42 @@ function Home() {
 
       <main>
         <h1 className={styles.title}>Rick and Morty Character Library</h1>
+
+        <h1 className={styles.title}>Characters by location</h1>
+
+        <div className={styles.grid}>
+          {allLocations.locations.results.map((location) => (
+            <Link href='' key={location.id}>
+              <a href='' className={styles.locationCard}>
+                <h2>{location.name}</h2>
+                <ListCharactersFrom
+                  selectionType='location'
+                  chars={allCharacters.characters.results}
+                  locationId={location.id}
+                />
+              </a>
+            </Link>
+          ))}
+        </div>
+
+        <h1 className={styles.title}>Characters by dimension</h1>
+
+        <div className={styles.grid}>
+          {allLocations.locations.results.map((location) => (
+            <Link href='' key={location.id}>
+              <a href='' className={styles.locationCard}>
+                <h2>{location.dimension}</h2>
+                <ListCharactersFrom
+                  selectionType='dimension'
+                  chars={allCharacters.characters.results}
+                  dimension={location.dimension}
+                />
+              </a>
+            </Link>
+          ))}
+        </div>
+
+        <h1 className={styles.title}>All characters</h1>
 
         <div className={styles.grid}>
           {allCharacters.characters.results.map((character) => (
@@ -91,41 +137,6 @@ function Home() {
                 <p>{character.gender}</p>
                 <p>Last known location: {character.location.name}</p>
                 <p>Dimension: {character.location.dimension}</p>
-              </a>
-            </Link>
-          ))}
-        </div>
-
-        <h1 className={styles.title}>Characters by location</h1>
-
-        <div className={styles.grid}>
-          {allLocations.locations.results.map((location) => (
-            <Link href='' key={location.id}>
-              <a href='' className={styles.locationCard}>
-                <h2>Characters at <br/>{location.name} ({location.dimension} dimension)</h2>
-                <ul>
-                  {
-                      getCharactersOfDimension(location.id, allCharacters.characters.results)
-                  }
-                </ul>
-              </a>
-            </Link>
-          ))}
-        </div>
-
-        <h1 className={styles.title}>Characters by dimension</h1>
-        
-        <div className={styles.grid}>
-          {allLocations.locations.results.map((location) => (
-            <Link href='' key={location.id}>
-              <a href='' className={styles.locationCard}>
-                <h2>Characters at <br/>{location.name} ({location.dimension} dimension)</h2>
-                <ul>
-                  {
-                    allCharacters.characters.results.map(character => (
-                      <li>{character.name}</li>
-                    ))}
-                </ul>
               </a>
             </Link>
           ))}
