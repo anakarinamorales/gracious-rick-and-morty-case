@@ -4,22 +4,22 @@
   display: block;
   font-size: 3rem;
   padding: 2rem 0px;
-  width: 100vw;
   text-align: center;
   text-transform: capitalize;
+  width: 100vw;
 }
 
 .button {
+  background-color: #000000;
   border: 1px solid transparent;
   border-radius: 1rem;
-  width: 8rem;
+  color: #FFFFFF;
+  cursor: pointer;
   display: block;
   margin: 0px auto;
-  background-color: #000000;
-  color: #FFFFFF;
-  text-align: center;
-  cursor: pointer;
   padding: 1rem 0px;
+  text-align: center;
+  width: 8rem;
 }
 
 @media (max-width: 1024px) {
