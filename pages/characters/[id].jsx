@@ -35,7 +35,10 @@ function Characters(props) {
           className={characterStyle.portrait}
         />
         <p>
-          {data.character.status} -{data.character.species}
+          {data.character.status}
+          {' '}
+          -
+          {data.character.species}
         </p>
         <p>{data.character.gender}</p>
         <p className={characterStyle.description}>
@@ -49,12 +52,12 @@ function Characters(props) {
 
       </div>
 
-      <Pokemon id={data.character.id}/>
+      <Pokemon id={data.character.id} />
     </main>
   );
 }
 
-Characters.getInitialProps = async ctx => {
+Characters.getInitialProps = async (ctx) => {
   const { query } = ctx;
   const { id } = query;
 

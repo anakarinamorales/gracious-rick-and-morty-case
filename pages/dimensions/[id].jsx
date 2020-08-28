@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/react-hooks';
+import Link from 'next/link';
 import withApollo from '../../components/withApollo';
 import queries from '../../queries';
 
 // components
 import List from '../../components/List';
-import Link from 'next/link';
 import Header from '../../components/Header';
 
 // styles
@@ -27,14 +27,17 @@ function Dimensions(props) {
     return 'Error';
   }
 
-  const characters = data.locations.results.reduce((acc, location) => acc.concat(location.residents), []);
+  const characters = data.locations.results.reduce(
+    (acc, location) => acc.concat(location.residents),
+    [],
+  );
 
   return (
     <main className={listStyle.container}>
       <Header title={`Characters at ${id}`} />
 
-      <List container='div' data={characters} className={listStyle.grid}>
-        {childData => (
+      <List container="div" data={characters} className={listStyle.grid}>
+        {(childData) => (
           <Link href="/characters/[id]" as={`/characters/${childData.id}`}>
             <a className={listStyle.card}>{childData.name}</a>
           </Link>

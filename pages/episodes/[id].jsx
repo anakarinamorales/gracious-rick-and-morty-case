@@ -25,10 +25,10 @@ function Episodes(props) {
 
   return (
     <main className={listStyle.container}>
-      <Header title={`Episode: "${data.episode.name}"`}></Header>
+      <Header title={`Episode: "${data.episode.name}"`} />
 
-      <List container='div' data={data.episode.characters} className={listStyle.grid}>
-        {childData => (
+      <List container="div" data={data.episode.characters} className={listStyle.grid}>
+        {(childData) => (
           <Link href="/characters/[id]" as={`/characters/${childData.id}`}>
             <a className={listStyle.card}>{childData.name}</a>
           </Link>
@@ -38,7 +38,7 @@ function Episodes(props) {
   );
 }
 
-Episodes.getInitialProps = async ctx => {
+Episodes.getInitialProps = async (ctx) => {
   const { query } = ctx;
   const { id } = query;
 

@@ -2,9 +2,9 @@ import { useRouter } from 'next/router';
 
 import Link from 'next/link';
 
-import style from '../components/styles/header.module.css';
+import style from './styles/header.module.css';
 
-const Header = props => {
+const Header = (props) => {
   const { title } = props;
   const router = useRouter();
   const header = (
@@ -14,7 +14,11 @@ const Header = props => {
       </nav>
 
       <h1 className={style.title}>{title}</h1>
-      <span onClick={() => router.back()} className={style.button}> {`\< BACK`} </span>
+      <button onClick={() => router.back()} className={style.button} type="button">
+        {' '}
+        {'< BACK'}
+        {' '}
+      </button>
     </>
   );
   return header;

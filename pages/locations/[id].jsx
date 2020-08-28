@@ -29,17 +29,21 @@ function Locations(props) {
     <main className={listStyle.container}>
       <Header title={data.location.name} />
 
-      <span className={listStyle["dymension-warn"]}>
-        {data.location.name} is located at dimension {data.location.dimension}. Click
-        <Link href='/dimensions/[id]' as={`/dimensions/${data.location.dimension}`}>
-          <a>{` here `}</a>
+      <span className={listStyle['dymension-warn']}>
+        {data.location.name}
+        {' '}
+        is located at dimension
+        {data.location.dimension}
+        . Click
+        <Link href="/dimensions/[id]" as={`/dimensions/${data.location.dimension}`}>
+          <a>{' here '}</a>
         </Link>
         to see all characters at this dimension.
       </span>
 
-      <List container='div' data={data.location.residents} className={listStyle.grid}>
-        {childData => (
-          <Link href='/characters/[id]' as={`/characters/${childData.id}`}>
+      <List container="div" data={data.location.residents} className={listStyle.grid}>
+        {(childData) => (
+          <Link href="/characters/[id]" as={`/characters/${childData.id}`}>
             <a className={listStyle.card}>{childData.name}</a>
           </Link>
         )}
@@ -48,7 +52,7 @@ function Locations(props) {
   );
 }
 
-Locations.getInitialProps = async ctx => {
+Locations.getInitialProps = async (ctx) => {
   const { query } = ctx;
   const { id } = query;
 
