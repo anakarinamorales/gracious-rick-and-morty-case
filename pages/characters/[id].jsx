@@ -4,8 +4,9 @@ import withApollo from '../../components/withApollo';
 import queries from '../../queries';
 
 import Header from '../../components/Header';
+import Pokemon from '../../components/Pokemon';
 
-import characterStyle from '../../components/styles/characters.module.css';
+import characterStyle from '../../components/styles/card.module.css';
 
 function Characters(props) {
   const { id } = props;
@@ -25,10 +26,14 @@ function Characters(props) {
 
   return (
     <main>
-      <Header title={data.character.name}/>
-      
-      <div className={characterStyle.character}>
-        <img src={data.character.image} alt={`${data.character.name} portrait`} className={characterStyle.portrait}/>
+      <Header title={data.character.name} />
+
+      <div className={characterStyle.card}>
+        <img
+          src={data.character.image}
+          alt={`${data.character.name} portrait`}
+          className={characterStyle.portrait}
+        />
         <p>
           {data.character.status} -{data.character.species}
         </p>
@@ -42,8 +47,9 @@ function Characters(props) {
           {data.character.location.dimension}
         </p>
 
-        <p> If this character was a pokemon, it would be (same id): </p>
       </div>
+
+      <Pokemon id={data.character.id}/>
     </main>
   );
 }
