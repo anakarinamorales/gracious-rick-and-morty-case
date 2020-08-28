@@ -2,14 +2,21 @@ import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/react-hooks';
 import withApollo from '../../components/withApollo';
 import queries from '../../queries';
-import style from '../../components/styles/layout.module.css';
+
+// components
+import List from '../../components/List';
+import Link from 'next/link';
+import Header from '../../components/Header';
+
+// styles
+import listStyle from '../../components/styles/list.module.css';
 
 function Dimensions(props) {
   const { id } = props;
 
-  const { loading, error, data } = useQuery(queries.GET_CHARACTER_BY_ID, {
+  const { loading, error, data } = useQuery(queries.GET_CHARACTERS_BY_DIMENSION, {
     notifyOnNetworkStatusChange: true,
-    variables: { id },
+    variables: { dimension: id },
   });
 
   if (loading) {
@@ -20,25 +27,19 @@ function Dimensions(props) {
     return 'Error';
   }
 
+  const characters = data.locations.results.reduce((acc, location) => acc.concat(location.residents), []);
+
   return (
-    <main>
-      <h1 className={style.title}>{data.character.name}</h1>
-      <img src={data.character.image} alt={`${data.character.name} portrait`} />
-      <p>
-        {data.character.status}
-        {' '}
-        -
-        {data.character.species}
-      </p>
-      <p>{data.character.gender}</p>
-      <p>
-        Last known location:
-        {data.character.location.name}
-      </p>
-      <p>
-        Dimension:
-        {data.character.location.dimension}
-      </p>
+    <main className={listStyle.container}>
+      <Header title={`Characters at ${id}`} />
+
+      <List container='div' data={characters} className={listStyle.grid}>
+        {childData => (
+          <Link href="/characters/[id]" as={`/characters/${childData.id}`}>
+            <a className={listStyle.card}>{childData.name}</a>
+          </Link>
+        )}
+      </List>
     </main>
   );
 }
@@ -51,7 +52,7 @@ Dimensions.getInitialProps = async (ctx) => {
 };
 
 Dimensions.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default withApollo({ ssr: true })(Dimensions);

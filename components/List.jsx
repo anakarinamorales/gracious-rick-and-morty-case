@@ -5,6 +5,7 @@ const List = (props) => {
   const { children, container, data, className} = props;
 
   const dataList = data.map(children);
+
   return React.createElement(container, {className} , dataList);
 };
 

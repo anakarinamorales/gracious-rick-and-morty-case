@@ -5,17 +5,6 @@
   align-items: center;
 }
 
-.title {
-  background-color: #000000;
-  color: #ffffff;
-  display: block;
-  font-size: 3rem;
-  padding: 2rem 0px;
-  width: 100vw;
-  text-align: center;
-  text-transform: capitalize;
-}
-
 .list {
   list-style: none;
 }
@@ -58,4 +47,26 @@
   width: 100%;
   margin-top: 3rem;
   flex-wrap: wrap;
+}
+
+.dymension-warn {
+  color: #FFFFFF;
+  background-color: rgba(244, 162, 11, 0.5);
+  margin-top: 2rem;
+  padding: 1rem;
+  max-width: 90vw;
+}
+
+@media (max-width: 615px) {
+  .grid {
+    width: 90vw;
+    flex-direction: column;
+    margin-top: 1rem;
+    flex-wrap: nowrap;
+  }
+
+  .card {
+    width: 100%;
+    margin: 0.8rem 0px;
+  }
 }

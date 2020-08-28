@@ -3,9 +3,7 @@ import { useQuery } from '@apollo/react-hooks';
 import List from './List';
 
 const QueryList = (props) => {
-  const {
-    query, children, type, container, className
-  } = props;
+  const { query, children, type, container, className } = props;
 
   const { loading, error, data } = useQuery(query, { notifyOnNetworkStatusChange: true });
 
@@ -17,7 +15,11 @@ const QueryList = (props) => {
     return 'Error';
   }
 
-return <List container={container} data={data[type].results} className={className}>{children}</List>;
+  return (
+    <List container={container} data={data[type].results} className={className}>
+      {children}
+    </List>
+  );
 };
 
 QueryList.propTypes = {

@@ -16,7 +16,7 @@ function Home() {
         <div className={indexStyle.grid}>
           <Link href='/list?type=characters'>
             <a href='/' className={indexStyle.button}>
-              <h2>Characters</h2>
+              <h2>List of all Characters</h2>
             </a>
           </Link>
 
@@ -33,35 +33,6 @@ function Home() {
           </Link>
         </div>
       </main>
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
-            Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-          line-height: 1.6;
-          font-size: 18px;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-
-        a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        a:hover {
-          text-decoration: underline;
-        }
-
-        img {
-          max-width: 100%;
-          display: block;
-        }
-      `}</style>
     </div>
   );
 }

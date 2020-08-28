@@ -90,6 +90,22 @@ const GET_CHARACTER_BY_ID = gql`
   }
 `;
 
+const GET_CHARACTERS_BY_DIMENSION = gql`
+  query dimension($dimension: String) {
+    locations(filter: { dimension: $dimension }) {
+      results {
+        id
+        name
+        dimension
+        residents {
+          id
+          name
+        }
+      }
+    }
+  }
+`;
+
 export default {
   GET_CHARACTERS,
   GET_LOCATIONS,
@@ -97,4 +113,5 @@ export default {
   GET_EPISODE_BY_ID,
   GET_LOCATION_BY_ID,
   GET_CHARACTER_BY_ID,
+  GET_CHARACTERS_BY_DIMENSION
 };

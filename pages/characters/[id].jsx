@@ -2,6 +2,9 @@ import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/react-hooks';
 import withApollo from '../../components/withApollo';
 import queries from '../../queries';
+
+import Header from '../../components/Header';
+
 import characterStyle from '../../components/styles/characters.module.css';
 
 function Characters(props) {
@@ -22,7 +25,8 @@ function Characters(props) {
 
   return (
     <main>
-      <h1 className={characterStyle.title}>{data.character.name}</h1>
+      <Header title={data.character.name}/>
+      
       <div className={characterStyle.character}>
         <img src={data.character.image} alt={`${data.character.name} portrait`} className={characterStyle.portrait}/>
         <p>
@@ -37,37 +41,9 @@ function Characters(props) {
           <span className={characterStyle.label}>Dimension:</span>
           {data.character.location.dimension}
         </p>
+
+        <p> If this character was a pokemon, it would be (same id): </p>
       </div>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
-            Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-          line-height: 1.6;
-          font-size: 18px;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-
-        a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        a:hover {
-          text-decoration: underline;
-        }
-
-        img {
-          max-width: 100%;
-          display: block;
-        }
-      `}</style>
     </main>
   );
 }

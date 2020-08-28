@@ -29,6 +29,8 @@
     "eslint-plugin-jsx-a11y": "6.3.0",
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
-    "sass": "^1.26.10"
+    "normalize.css": "^8.0.1",
+    "sass": "^1.26.10",
+    "styled-normalize": "^8.0.7"
   }
 }

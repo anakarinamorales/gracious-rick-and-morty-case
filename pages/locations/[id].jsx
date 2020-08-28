@@ -3,8 +3,11 @@ import Link from 'next/link';
 import { useQuery } from '@apollo/react-hooks';
 import withApollo from '../../components/withApollo';
 import queries from '../../queries';
-import listStyle from '../../components/styles/list.module.css';
+
 import List from '../../components/List';
+import Header from '../../components/Header';
+
+import listStyle from '../../components/styles/list.module.css';
 
 function Locations(props) {
   const { id } = props;
@@ -24,14 +27,19 @@ function Locations(props) {
 
   return (
     <main className={listStyle.container}>
-      <h1 className={listStyle.title}>
-        Location:
-        {data.location.name}
-      </h1>
+      <Header title={data.location.name} />
 
-      <List container="div" data={data.location.residents} className={listStyle.grid}>
-        {(childData) => (
-          <Link href={`/characters/${childData.id}`}>
+      <span className={listStyle["dymension-warn"]}>
+        {data.location.name} is located at dimension {data.location.dimension}. Click
+        <Link href='/dimensions/[id]' as={`/dimensions/${data.location.dimension}`}>
+          <a>{` here `}</a>
+        </Link>
+        to see all characters at this dimension.
+      </span>
+
+      <List container='div' data={data.location.residents} className={listStyle.grid}>
+        {childData => (
+          <Link href='/characters/[id]' as={`/characters/${childData.id}`}>
             <a className={listStyle.card}>{childData.name}</a>
           </Link>
         )}
@@ -40,7 +48,7 @@ function Locations(props) {
   );
 }
 
-Locations.getInitialProps = async (ctx) => {
+Locations.getInitialProps = async ctx => {
   const { query } = ctx;
   const { id } = query;
 
@@ -48,7 +56,7 @@ Locations.getInitialProps = async (ctx) => {
 };
 
 Locations.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default withApollo({ ssr: true })(Locations);

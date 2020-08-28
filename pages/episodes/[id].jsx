@@ -5,6 +5,7 @@ import withApollo from '../../components/withApollo';
 import queries from '../../queries';
 import listStyle from '../../components/styles/list.module.css';
 import List from '../../components/List';
+import Header from '../../components/Header';
 
 function Episodes(props) {
   const { id } = props;
@@ -24,14 +25,11 @@ function Episodes(props) {
 
   return (
     <main className={listStyle.container}>
-      <h1 className={listStyle.title}>
-        Episode:
-        {data.episode.name}
-      </h1>
+      <Header title={`Episode: "${data.episode.name}"`}></Header>
 
       <List container='div' data={data.episode.characters} className={listStyle.grid}>
         {childData => (
-          <Link href={`/characters/${childData.id}`}>
+          <Link href="/characters/[id]" as={`/characters/${childData.id}`}>
             <a className={listStyle.card}>{childData.name}</a>
           </Link>
         )}
