@@ -1,6 +1,8 @@
 # Gracious Test
 This is a test applied by Gracious to measure my developer skills.
 
+Here is the link for app in production: https://bit.ly/3lpI4xD
+
 ## The Case
 Using the API: https://rickandmortyapi.com/
 
