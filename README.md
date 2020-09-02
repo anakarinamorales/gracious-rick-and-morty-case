@@ -1,7 +1,7 @@
 # Gracious Test
 This is a test applied by Gracious to measure my developer skills.
 
-Here is the link for app in production: https://bit.ly/3lpI4xD
+Here is the link for app in production: https://rick-and-morty-library-three.vercel.app/
 
 ## The Case
 Using the API: https://rickandmortyapi.com/
