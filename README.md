@@ -38,5 +38,5 @@ Do the following:
 - Apply atomic component design
 - Add a page that explains what is a plumbus and how it's made
 - Remove unnecessary html tags
-- Add sitemap
+- Add HTML5 outliner
 - Create a folder for each component and put its .jsx and .css file inside it
