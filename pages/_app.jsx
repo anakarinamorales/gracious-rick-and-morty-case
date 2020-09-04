@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import '../components/styles/global.css';
+import '../styles/global.css';
 import 'normalize.css';
 
 export default function MyApp(props) {

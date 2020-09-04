@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/react-hooks';
 import Link from 'next/link';
-import withApollo from '../../components/withApollo';
-import queries from '../../queries';
+import withApollo from '../../utils/withApollo';
+import queries from '../../utils/queries';
 
 // components
-import List from '../../components/List';
-import Header from '../../components/Header';
+import List from '../../components/List/List';
+import Header from '../../components/Header/Header';
 
 // styles
-import listStyle from '../../components/styles/list.module.css';
+import listStyle from '../../components/List/list.module.css';
 
 function Dimensions(props) {
   const { id } = props;

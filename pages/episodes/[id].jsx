@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { useQuery } from '@apollo/react-hooks';
-import withApollo from '../../components/withApollo';
-import queries from '../../queries';
-import listStyle from '../../components/styles/list.module.css';
-import List from '../../components/List';
-import Header from '../../components/Header';
+
+import withApollo from '../../utils/withApollo';
+import queries from '../../utils/queries';
+import listStyle from '../../components/List/list.module.css';
+import List from '../../components/List/List';
+import Header from '../../components/Header/Header';
 
 function Episodes(props) {
   const { id } = props;
@@ -46,7 +47,7 @@ Episodes.getInitialProps = async (ctx) => {
 };
 
 Episodes.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default withApollo({ ssr: true })(Episodes);

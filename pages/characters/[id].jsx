@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/react-hooks';
-import withApollo from '../../components/withApollo';
-import queries from '../../queries';
+import withApollo from '../../utils/withApollo';
+import queries from '../../utils/queries';
 
-import Header from '../../components/Header';
-import Pokemon from '../../components/Pokemon';
+import Header from '../../components/Header/Header';
+import Pokemon from '../../components/Pokemon/Pokemon';
 
 import characterStyle from '../../components/styles/card.module.css';
 
@@ -35,10 +35,7 @@ function Characters(props) {
           className={characterStyle.portrait}
         />
         <p>
-          {data.character.status}
-          {' '}
-          -
-          {data.character.species}
+          {data.character.status} -{data.character.species}
         </p>
         <p>{data.character.gender}</p>
         <p className={characterStyle.description}>
@@ -49,7 +46,6 @@ function Characters(props) {
           <span className={characterStyle.label}>Dimension:</span>
           {data.character.location.dimension}
         </p>
-
       </div>
 
       <Pokemon id={data.character.id} />
@@ -57,7 +53,7 @@ function Characters(props) {
   );
 }
 
-Characters.getInitialProps = async (ctx) => {
+Characters.getInitialProps = async ctx => {
   const { query } = ctx;
   const { id } = query;
 
@@ -65,7 +61,7 @@ Characters.getInitialProps = async (ctx) => {
 };
 
 Characters.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default withApollo({ ssr: true })(Characters);

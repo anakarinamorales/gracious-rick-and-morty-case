@@ -2,11 +2,12 @@ import { useRouter } from 'next/router';
 
 import Link from 'next/link';
 
-import style from './styles/header.module.css';
+import style from './header.module.css';
 
 const Header = (props) => {
   const { title } = props;
   const router = useRouter();
+
   const header = (
     <>
       <nav>
@@ -15,12 +16,11 @@ const Header = (props) => {
 
       <h1 className={style.title}>{title}</h1>
       <button onClick={() => router.back()} className={style.button} type="button">
-        {' '}
         {'< BACK'}
-        {' '}
       </button>
     </>
   );
+
   return header;
 };
 

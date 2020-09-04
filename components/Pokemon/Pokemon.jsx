@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import pokemonStyle from './styles/card.module.css';
+import pokemonStyle from '../styles/card.module.css';
 
 const Pokemon = (props) => {
   const { id } = props;
