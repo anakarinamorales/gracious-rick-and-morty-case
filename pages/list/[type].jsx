@@ -19,7 +19,7 @@ function List(props) {
 
       <QueryList query={query} type={type} container="div" className={listStyle.grid}>
         {(childData) => (
-          <Link href={`${type}/[id]`} as={`${type}/${childData.id}`} key={childData.id}>
+          <Link href={`/${type}/[id]`} as={`/${type}/${childData.id}`} key={childData.id}>
             <a className={listStyle.card}>{childData.name}</a>
           </Link>
         )}
