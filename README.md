@@ -1,7 +1,7 @@
 # Gracious Test
 This is a test applied by Gracious to measure my developer skills.
 
-Here is the link for app in production: https://bit.ly/3lpI4xD
+Here is the link for app in production: https://rick-and-morty-library-three.vercel.app/
 
 ## The Case
 Using the API: https://rickandmortyapi.com/
@@ -10,7 +10,7 @@ Do the following:
 - Show all characters that exist (or are last seen) in a given dimension
 - Show all characters that exist (or are last seen) at a given location
 - Show all characters that partake in a given episode
-- Showing all information of a character (Name, species, gender, last location, dimension, etc)
+- Show all information of a character (Name, species, gender, last location, dimension, etc)
 
 ## Technology Stack
 ![NextJS](https://i.imgur.com/fCe3kYN.png)
@@ -36,3 +36,7 @@ Do the following:
 - Include SASS
 - Dockerize
 - Apply atomic component design
+- Add a page that explains what is a plumbus and how it's made
+- Remove unnecessary html tags
+- Add HTML5 outliner
+- Create a folder for each component and put its .jsx and .css file inside it
