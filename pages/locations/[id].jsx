@@ -31,7 +31,11 @@ function Locations(props) {
       <Header title={data.location.name} />
 
       <span className={listStyle['dymension-warn']}>
-        {data.location.name} is located at dimension {data.location.dimension}. Click
+        {data.location.name}
+        {' '}
+        is located at dimension
+        {data.location.dimension}
+        . Click
         <Link href="/dimensions/[id]" as={`/dimensions/${data.location.dimension}`}>
           <a>{' here '}</a>
         </Link>

@@ -28,10 +28,23 @@ function Characters(props) {
       <Header title={data.character.name} />
 
       <Card cardImage={data.character.image} cardTitle={data.character.name}>
-        <p>Status: {data.character.status ? data.character.status : '-'}</p>
-        <p>Gender: {data.character.gender ? data.character.gender : '-'}</p>
-        <p>Location: {data.character.location.name ? data.character.location.name : '-'}</p>
-        <p> Dimension: {data.character.location.dimension ? data.character.location.dimension : '-'}</p>
+        <p>
+          Status:
+          {data.character.status ? data.character.status : '-'}
+        </p>
+        <p>
+          Gender:
+          {data.character.gender ? data.character.gender : '-'}
+        </p>
+        <p>
+          Location:
+          {data.character.location.name ? data.character.location.name : '-'}
+        </p>
+        <p>
+          {' '}
+          Dimension:
+          {data.character.location.dimension ? data.character.location.dimension : '-'}
+        </p>
       </Card>
 
       <Pokemon id={data.character.id} />
@@ -39,7 +52,7 @@ function Characters(props) {
   );
 }
 
-Characters.getInitialProps = async ctx => {
+Characters.getInitialProps = async (ctx) => {
   const { query } = ctx;
   const { id } = query;
 

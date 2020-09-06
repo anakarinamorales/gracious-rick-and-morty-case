@@ -8,7 +8,7 @@ const QueryList = (props) => {
   } = props;
 
   const {
-    loading, error, data, fetchMore,
+    loading, error, data,
   } = useQuery(query, {
     notifyOnNetworkStatusChange: true,
   });
