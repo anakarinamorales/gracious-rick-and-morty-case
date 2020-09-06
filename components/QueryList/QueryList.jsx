@@ -26,25 +26,6 @@ const QueryList = (props) => {
       <List container={container} data={data[type].results} className={className}>
         {children}
       </List>
-      {/* <button
-        type="button"
-        onClick={() => fetchMore({
-          variables: {
-            offset: data.characters.results.length,
-          },
-          updateQuery: (prev, { fetchMoreResult }) => {
-            if (!fetchMoreResult) return prev;
-            return {
-              ...prev,
-              characters: {
-                results: [...prev.characters.results, ...fetchMoreResult.characters.results],
-              },
-            };
-          },
-        })}
-      >
-        Load More
-      </button> */}
     </>
   );
 };

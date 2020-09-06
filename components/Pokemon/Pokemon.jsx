@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import pokemonStyle from '../styles/card.module.css';
+import Card from '../Card/Card';
 
 const Pokemon = (props) => {
   const { id } = props;
@@ -18,11 +18,7 @@ const Pokemon = (props) => {
   }
 
   return (
-    <div className={pokemonStyle.card}>
-      <p> If this character was a pokemon, it would be ... </p>
-      <img src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} className={pokemonStyle.portrait} alt={data.name} />
-      <span className={pokemonStyle.info}>{data.name}</span>
-    </div>
+    <Card cardImage={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} cardTitle={data.name} />
   );
 };
 
