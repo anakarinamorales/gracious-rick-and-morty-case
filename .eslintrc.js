@@ -21,6 +21,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'react/forbid-prop-types': 'off',
+    'jsx-quotes': [2, 'prefer-single'],
   },
   globals: {
     React: 'writable',

@@ -35,15 +35,15 @@ function Locations(props) {
         is located at dimension
         {data.location.dimension}
         . Click
-        <Link href="/dimensions/[id]" as={`/dimensions/${data.location.dimension}`}>
+        <Link href='/dimensions/[id]' as={`/dimensions/${data.location.dimension}`}>
           <a>{' here '}</a>
         </Link>
         to see all characters at this dimension.
       </span>
 
-      <List container="div" data={data.location.residents} className={listStyle.grid}>
+      <List container='div' data={data.location.residents} className={listStyle.grid}>
         {(childData) => (
-          <Link href="/characters/[id]" as={`/characters/${childData.id}`}>
+          <Link href='/characters/[id]' as={`/characters/${childData.id}`}>
             <a className={listStyle.card}>{childData.name}</a>
           </Link>
         )}

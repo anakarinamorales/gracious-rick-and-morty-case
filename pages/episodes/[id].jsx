@@ -28,9 +28,9 @@ function Episodes(props) {
     <main className={listStyle.container}>
       <Header title={`Episode: "${data.episode.name}"`} />
 
-      <List container="div" data={data.episode.characters} className={listStyle.grid}>
+      <List container='div' data={data.episode.characters} className={listStyle.grid}>
         {(childData) => (
-          <Link href="/characters/[id]" as={`/characters/${childData.id}`}>
+          <Link href='/characters/[id]' as={`/characters/${childData.id}`}>
             <a className={listStyle.card}>{childData.name}</a>
           </Link>
         )}

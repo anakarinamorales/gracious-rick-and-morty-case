@@ -77,6 +77,25 @@
   height: 1em;
 }
 
+.plumbus {
+  background-color: #24282f;
+  top: 17vh;
+  padding: 1.5em 0px;
+  position: relative;
+  width: 100vw;
+}
+
+.plumbus .call-to-action {
+  color: #9e9e9e;
+  text-align: center;
+  margin: 0px;
+}
+
+.plumbus .video {
+  margin: 1rem auto;
+  display: block;
+}
+
 @media (max-width: 1024px) {
   .title {
     font-size: 3rem;
@@ -95,5 +114,9 @@
 
   .button {
     font-size: 0.8rem;
+  }
+
+  .plumbus .video {
+    width: 95vw;
   }
 }

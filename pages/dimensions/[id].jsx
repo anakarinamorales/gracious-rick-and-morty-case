@@ -36,9 +36,9 @@ function Dimensions(props) {
     <main className={listStyle.container}>
       <Header title={`Characters at ${id}`} />
 
-      <List container="div" data={characters} className={listStyle.grid}>
+      <List container='div' data={characters} className={listStyle.grid}>
         {(childData) => (
-          <Link href="/characters/[id]" as={`/characters/${childData.id}`}>
+          <Link href='/characters/[id]' as={`/characters/${childData.id}`}>
             <a className={listStyle.card}>{childData.name}</a>
           </Link>
         )}

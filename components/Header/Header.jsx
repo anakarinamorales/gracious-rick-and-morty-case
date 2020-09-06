@@ -11,11 +11,11 @@ const Header = (props) => {
   const header = (
     <>
       <nav>
-        <Link href="/"><a>HOME</a></Link>
+        <Link href='/'><a>HOME</a></Link>
       </nav>
 
       <h1 className={style.title}>{title}</h1>
-      <button onClick={() => router.back()} className={style.button} type="button">
+      <button onClick={() => router.back()} className={style.button} type='button'>
         {'< BACK'}
       </button>
     </>

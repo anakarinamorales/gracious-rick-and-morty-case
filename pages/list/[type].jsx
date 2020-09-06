@@ -17,7 +17,7 @@ function List(props) {
     <main className={listStyle.container}>
       <Header title={`${type} list`} />
 
-      <QueryList query={query} type={type} container="div" className={listStyle.grid}>
+      <QueryList query={query} type={type} container='div' className={listStyle.grid}>
         {(childData) => (
           <Link href={`/${type}/[id]`} as={`/${type}/${childData.id}`} key={childData.id}>
             <a className={listStyle.card}>{childData.name}</a>
