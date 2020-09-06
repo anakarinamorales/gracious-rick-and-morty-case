@@ -32,7 +32,6 @@ function Locations(props) {
 
       <span className={listStyle['dymension-warn']}>
         {data.location.name}
-        {' '}
         is located at dimension
         {data.location.dimension}
         . Click

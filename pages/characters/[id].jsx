@@ -32,16 +32,18 @@ function Characters(props) {
           Status:
           {data.character.status ? data.character.status : '-'}
         </p>
+
         <p>
           Gender:
           {data.character.gender ? data.character.gender : '-'}
         </p>
+
         <p>
           Location:
           {data.character.location.name ? data.character.location.name : '-'}
         </p>
+
         <p>
-          {' '}
           Dimension:
           {data.character.location.dimension ? data.character.location.dimension : '-'}
         </p>
